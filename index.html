@@ -337,45 +337,55 @@
                 </div>
             </div>
 
-            <!-- Project 2 new card -->
+            <!-- Project 2 final year project card -->
             <div class="row mb-5">
                 <div class="col-lg-12">
                     <div class="card shadow-sm project-card">
                         <div class="card-body">
-                            <!--project image -->
-                            <img src="images/iot_project1.png" alt="IoT Project">
-                            <br />
-                            <!--break because it would not fit correctly + project badge  -->
-                            <div class="project-badge">
-                                Year 4 Project
-                            </div>
+                            <!--project image, responsive so it scales inside the card -->
+                            <img src="images/fyp-operations-dashboard.png" class="img-fluid mb-3 rounded" alt="Grafana operations dashboard showing room occupancy against capacity">
+                            <!--project badge -->
+                            <div class="project-badge">Final Year Project</div>
                             <!--project title and calendar icon before year -->
-                            <h3 class="card-title text-primary">IoT Platform Research for QR Code Attendance System</h3>
-                            <p class="text-muted mb-3"><i class="bi bi-calendar3"></i> 2025 - Final Year Project (Ongoing)</p>
+                            <h3 class="card-title text-primary">Smart Campus Attendance &amp; Room Occupancy Platform</h3>
+                            <p class="text-muted mb-3"><i class="bi bi-calendar3"></i> 2026 - Final Year Project</p>
 
                             <p>
-                                Comprehensive research project comparing multiple IoT platforms (Node-RED, ThingsBoard)
-                                for implementing a QR code-based attendance monitoring and room occupancy system.
-                                This project involves real stakeholder engagement with TU Dublin's Campus Planning team
-                                to validate requirements and ensure practical applicability.
+                                A containerised cloud platform that replaces paper attendance sheets and manual head
+                                counts. A student scans the QR code on a room door, is authenticated against the
+                                institution's identity provider, and the event lands in a time-series database that
+                                drives live dashboards within seconds. Requirements were shaped by a conversation with a
+                                TU Dublin building manager about how occupancy management actually works day to day.
+                            </p>
+
+                            <p>
+                                It grew directly out of my Year 3 RFID project below. The weakness there was that the
+                                card <em>was</em> the credential — clonable, shareable and tied to no verified person.
+                                Fixing that is what this project is about.
                             </p>
 
                             <h6 class="mt-3">Technologies Used:</h6>
                             <div class="mb-3">
                                 <!--badge pill section -->
+                                <span class="badge bg-primary me-1">Docker Compose</span>
                                 <span class="badge bg-primary me-1">Node-RED</span>
-                                <span class="badge bg-primary me-1">ThingsBoard</span>
-                                <span class="badge bg-primary me-1">Docker</span>
-                                <span class="badge bg-primary me-1">IoT Protocols</span>
-                                <span class="badge bg-primary me-1">QR Code Systems</span>
+                                <span class="badge bg-primary me-1">InfluxDB</span>
+                                <span class="badge bg-primary me-1">Grafana</span>
+                                <span class="badge bg-primary me-1">Prometheus</span>
+                                <span class="badge bg-primary me-1">Entra ID SSO</span>
+                                <span class="badge bg-primary me-1">Cloudflare Zero Trust</span>
                             </div>
 
                             <h6>Key Achievements:</h6>
                             <ul>
-                                <li>Successfully validated stakeholder requirements with Campus Planning team</li>
-                                <li>Completed comprehensive platform comparison analysis</li>
-                                <li>Produced detailed technical documentation</li>
-                                <li>Evaluated scalability and deployment considerations</li>
+                                <li><strong>Fraud-resistant check-in</strong> — the student ID comes from the authenticated
+                                    SSO session and is injected server-side, so nobody can sign in a friend who isn't there</li>
+                                <li>Four permission tiers enforced at query level, so a student sees only their own
+                                    attendance while a department head sees their whole building</li>
+                                <li>Live occupancy per room measured against capacity, with historical trends by
+                                    building, floor and hour</li>
+                                <li>Prometheus scraping the ingest API for throughput, validation failures and fraud flags</li>
+                                <li>105-page report covering literature review, three development iterations and testing</li>
                             </ul>
                             <p>
                                 <a href="https://github.com/floodcathal/attendance-project-FYP">View on GitHub <i class="bi bi-github"></i></a>
