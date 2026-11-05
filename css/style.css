@@ -58,7 +58,9 @@ section {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #89CFF0 0%, #8B0000 100%);
+    /* graduation photo with a dark overlay so the white text stays readable */
+    background: linear-gradient(rgba(10, 25, 45, 0.62), rgba(10, 25, 45, 0.62)),
+                url("../images/graduation.jpg") center 30% / cover no-repeat;
     color: white;
     padding: 150px 0 100px 0;
     margin-top: -56px;
@@ -312,4 +314,18 @@ ul {
     font-size: 4rem;
     color: #667eea;
     margin-bottom: 20px;
+}
+
+/* Project screenshots: keep them a sensible size inside full-width cards */
+.project-img {
+    display: block;
+    max-height: 420px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #dee2e6;
+}
+
+.project-img-portrait {
+    max-height: 380px;
 }
